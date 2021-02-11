@@ -4,7 +4,7 @@ void Dictionary::readUserInp() {
     string word;
 
     do {
-    cout << "Enter a word (type '/quit' to finish): ";
+    cout << "Enter a word w/out spaces (type '/quit' to finish): ";
     cin >> word;
     if (word != "/quit")
         _words.push_back(word);
@@ -28,8 +28,4 @@ string Dictionary::randomWord() {
     int randIndex = rand() % _words.size();
 
     return _words[randIndex];
-}
-void Dictionary::print() {
-    for (string word : _words)
-        cout << word;
 }

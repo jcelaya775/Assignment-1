@@ -18,8 +18,6 @@ int main() {
         cin >> option;
     }
 
-    cout << endl;
-
     if (option == 1) {
         string filename;
         cout << "Enter filename: ";
@@ -33,28 +31,64 @@ int main() {
     string choice;
     cout << "Do you want to play (yes/no): ";
     cin >> choice;
+    cout << endl;
 
-    if (choice == "yes") {
-        ;
-        cout << "Enter your name: ";
-        cin >> name;
-     } else
-        exit(0);
+    // if (choice == "yes") {
+    //     ;
+    //     cout << "Enter your name: ";
+    //     cin >> name;
+    //  } else
+    //     exit(0);
 
     GameState game(d);
-    Player player(name);
-    string guess;
+    Player player;
 
     while (choice == "yes")
     {
-        cout << "Current state:" << endl;
-        game.displayState();
+        bool won = false;
+        string guess;
+        GameState game(d);
 
-        cout << "Enter your guess (word or letter):";
-        cin >> guess;
+        while (game.attemptsLeft() > 0 && game.getCurrentState() != game.getCurrentWord()) {
+            cout << "Current state: " << game.getCurrentState() << "\n\n";
+            cout << game.attemptsLeft() << " guesses left."
+                 << "\n\n";
 
-        player.makeGuess(guess);
+            cout << "Enter your guess (word or letter): ";
+            cin >> guess;
+            cout << endl;
+
+            bool guessResult = player.makeGuess(game, guess);
+
+            if (guessResult == true)
+                cout << "You have made a correct guess!" << endl;   
+            else
+                cout << "Your guess was incorrect." << endl;
+
+            if (game.getCurrentState() == game.getCurrentWord()) // if game was won
+                won = true;
+
+            cout << "\n\n";
+        }
+
+        if (won) {
+            cout << "Congratulations! You have guessed the word: '" << game.getCurrentWord() << "' correctly!" << endl;
+            ;
+            player.incWins();
+        }
+        else {
+            cout << "You have run out of guesses. Better luck next time." << endl;
+            ;
+            player.incLosses();
+        } 
+            
+
+        cout << "\n\nDo you want to play again (yes/no): ";
+        cin >> choice;
+        cout << "\n\n";
     }
+
+    cout << "Thank you for playing! You have " << player.getWins() << " wins and " << player.getLosses() << " losses.";
 
     return 0;
 }

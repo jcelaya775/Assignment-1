@@ -3,9 +3,6 @@
 Player::Player(string name) {
     _name = name;
 }
-void Player::makeGuess(string) {
-    _
+bool Player::makeGuess(GameState& game, string guess) {
+    return game.processGuess(guess);
 }
-// bool Player::gameStatus() {
-
-// }

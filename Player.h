@@ -10,13 +10,18 @@ class Player {
     private:
         string _name;
         int _numWins, _numLosses;
-        GameState _game;
 
     public:
-        Player(){};
+        Player() {
+            _numWins = 0;
+            _numLosses = 0;
+        };
         Player(string);
-        void makeGuess(string); // pre: current state; post: add guessed word to the list
-        bool gameStatus(); // returns whether the player has won the current game
+        void incWins() { _numWins++; };
+        void incLosses() { _numLosses++; };
+        int getWins() { return _numWins; };
+        int getLosses() { return _numLosses; };
+        bool makeGuess(GameState&, string); // pre: current state; post: add guessed word to the list
 };
 
 #endif
