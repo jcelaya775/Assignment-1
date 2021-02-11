@@ -1,6 +1,6 @@
 #include "GameState.h"
 
-GameState::GameState(Dictionary d, Player player) {
+GameState::GameState(Dictionary d) {
     _currentWord = d.randomWord();
     _attemptsLeft = _currentWord.length();
     _currentState = "";
@@ -27,7 +27,7 @@ int GameState::attemptsLeft() {
 bool GameState::makeGuess(string guess) {
     bool guessResult = false;
 
-    if (guess.length() == _currentWord.length()) {  // guessed the word
+    if (guess.length() == _currentWord.length()) {  // if guessed the word
         if (_currentWord.find(guess) == 0) {// fill in word
             _currentState = _currentWord;
             guessResult = true;
