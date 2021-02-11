@@ -1,7 +1,12 @@
-Hello
-       friend
+hello
+friend
 my
-  name
-    is
+word
+is
 not
 bob
+racecar
+goods
+rudimentary
+extraterrestrial
+liquid

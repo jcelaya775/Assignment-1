@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
     Dictionary d;
-    int option;
+    int option; // input choice
 
     cout << "Choose option -> Read words from a file (1) - Enter words manually (2): ";
     cin >> option;
@@ -27,21 +27,11 @@ int main() {
         d.readUserInp();
     }
 
-    string name;
+    Player player;
     string choice;
     cout << "Do you want to play (yes/no): ";
     cin >> choice;
     cout << endl;
-
-    // if (choice == "yes") {
-    //     ;
-    //     cout << "Enter your name: ";
-    //     cin >> name;
-    //  } else
-    //     exit(0);
-
-    GameState game(d);
-    Player player;
 
     while (choice == "yes")
     {
@@ -58,14 +48,14 @@ int main() {
             cin >> guess;
             cout << endl;
 
-            bool guessResult = player.makeGuess(game, guess);
+            bool guessResult = game.makeGuess(guess);
 
             if (guessResult == true)
                 cout << "You have made a correct guess!" << endl;   
             else
                 cout << "Your guess was incorrect." << endl;
 
-            if (game.getCurrentState() == game.getCurrentWord()) // if game was won
+            if (game.getCurrentState() == game.getCurrentWord())
                 won = true;
 
             cout << "\n\n";
@@ -73,12 +63,10 @@ int main() {
 
         if (won) {
             cout << "Congratulations! You have guessed the word: '" << game.getCurrentWord() << "' correctly!" << endl;
-            ;
             player.incWins();
         }
         else {
-            cout << "You have run out of guesses. Better luck next time." << endl;
-            ;
+            cout << "You have run out of guesses. The word was '" << game.getCurrentWord() << "'." << endl;
             player.incLosses();
         } 
             
@@ -88,7 +76,7 @@ int main() {
         cout << "\n\n";
     }
 
-    cout << "Thank you for playing! You have " << player.getWins() << " wins and " << player.getLosses() << " losses.";
+    cout << "Thank you for playing! You have " << player.getWins() << " wins and " << player.getLosses() << " losses." << endl;
 
     return 0;
 }

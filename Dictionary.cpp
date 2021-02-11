@@ -25,6 +25,7 @@ void Dictionary::readFile(string filename) {
     }
 }
 string Dictionary::randomWord() {
+    srand(time(0));
     int randIndex = rand() % _words.size();
 
     return _words[randIndex];

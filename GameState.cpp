@@ -1,6 +1,6 @@
 #include "GameState.h"
 
-GameState::GameState(Dictionary d) {
+GameState::GameState(Dictionary d, Player player) {
     _currentWord = d.randomWord();
     _attemptsLeft = _currentWord.length();
     _currentState = "";
@@ -24,27 +24,26 @@ vector<string> GameState::getWrongWords() {
 int GameState::attemptsLeft() {
     return _attemptsLeft;
 }
-bool GameState::processGuess(string guess) {
+bool GameState::makeGuess(string guess) {
     bool guessResult = false;
 
-    if (guess.length() == _currentWord.length()) {  // if guessed the word
-        if (_currentWord.find(guess) == 0) {// guessed the word correctly
+    if (guess.length() == _currentWord.length()) {  // guessed the word
+        if (_currentWord.find(guess) == 0) {// fill in word
             _currentState = _currentWord;
             guessResult = true;
         } else // guesed wrong word
             _wrongWords.push_back(guess);
-
-    /* TO DO: Remember to mark duplicate letters if applicable */
-    } else if (guess.length() == 1) { // guessed a letter
-        if (_currentWord.find(guess) != _currentWord.npos) { // if guessed a letter correctly
-            for (int i = 0; i < _currentWord.length(); i++) {
+    } 
+    else if (guess.length() == 1) { // if guessed a letter
+        if (_currentWord.find(guess) != _currentWord.npos) { // if guessed letter(s) correctly 
+            for (int i = 0; i < _currentWord.length(); i++) { // mark letter(s)
                 if (guess == _currentWord.substr(i, 1))
                     _currentState[i] = _currentWord[i];
             }
         
             guessResult = true;
-        } else
-            _wrongLetters.push_back(guess); // guessed wrong letter
+        } else // guessed wrong letter
+            _wrongLetters.push_back(guess); 
     }
 
     _attemptsLeft--;

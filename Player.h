@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include "GameState.h"
 using namespace std;
 
 class Player {
@@ -17,11 +16,10 @@ class Player {
             _numLosses = 0;
         };
         Player(string);
-        void incWins() { _numWins++; };
-        void incLosses() { _numLosses++; };
-        int getWins() { return _numWins; };
-        int getLosses() { return _numLosses; };
-        bool makeGuess(GameState&, string); // pre: current state; post: add guessed word to the list
+        void incWins() { _numWins++; };     // pre: _numWins; post: incremenet _numWins
+        void incLosses() { _numLosses++; }; // pre: _numLosses; post: increments _numLosses
+        int getWins() { return _numWins; }; // pre: _numWins; post: returns _numWins
+        int getLosses() { return _numLosses; }; // pre: _numLosses; post: returns numLosses
 };
 
 #endif

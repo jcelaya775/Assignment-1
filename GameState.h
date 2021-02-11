@@ -17,12 +17,12 @@ class GameState {
     public:
         GameState(){};
         GameState(Dictionary);
-        string getCurrentWord();
-        string getCurrentState();
-        vector<string> getWrongLetters();
-        vector<string> getWrongWords();
-        int attemptsLeft();
-        bool processGuess(string);
+        string getCurrentWord(); // pre: _currentWord; post: returns _currentWord
+        string getCurrentState(); // pre: _currentState; post: returns _currentState
+        vector<string> getWrongLetters(); // pre: _wrongLetters; post: returns _wrongLetteres
+        vector<string> getWrongWords();   // pre: _wrongWords; post: rturns _wrongWords
+        int attemptsLeft();               // pre: _attemptsLeft; post: returns _attemptsLeft
+        bool makeGuess(string);           // pre: none; post: returns whether guess was correct and marks _currentState if applicable
 };
 
 #endif
