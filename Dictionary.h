@@ -15,7 +15,6 @@ class Dictionary {
         void readUserInp(); // populates the container via the console
         void readFile(string); //populates the container via a file
         string randomWord();   // accesses a random word from the container
-        // void print();
 };
 
 #endif
