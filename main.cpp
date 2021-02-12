@@ -51,7 +51,9 @@ int main() {
             bool guessResult = game.makeGuess(guess);
 
             if (guessResult == true)
-                cout << "You have made a correct guess!" << endl;   
+                cout << "You have made a correct guess!" << endl;
+            else if (guess.length() != 1 && guess.length() != game.getCurrentWord().length()) // if guess is incorrect length
+                cout << "You must guess either the entire word or a letter of the word. You have exhausted an attempt." << endl;
             else
                 cout << "Your guess was incorrect." << endl;
 

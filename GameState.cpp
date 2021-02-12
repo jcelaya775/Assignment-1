@@ -27,11 +27,11 @@ int GameState::attemptsLeft() {
 bool GameState::makeGuess(string guess) {
     bool guessResult = false;
 
-    if (guess.length() == _currentWord.length()) {  // if guessed the word
+    if (guess.length() == _currentWord.length()) {  // if guessed the entire word
         if (_currentWord.find(guess) == 0) {// fill in word
             _currentState = _currentWord;
             guessResult = true;
-        } else // guesed wrong word
+        } else // guessed wrong word
             _wrongWords.push_back(guess);
     } 
     else if (guess.length() == 1) { // if guessed a letter
