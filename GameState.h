@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Dictionary.h"
 using namespace std;
 class GameState {
     private:
@@ -16,7 +15,7 @@ class GameState {
 
     public:
         GameState(){};
-        GameState(Dictionary);
+        GameState(string);
         string getCurrentWord(); // pre: _currentWord; post: returns _currentWord
         string getCurrentState(); // pre: _currentState; post: returns _currentState
         vector<string> getWrongLetters(); // pre: _wrongLetters; post: returns _wrongLetteres

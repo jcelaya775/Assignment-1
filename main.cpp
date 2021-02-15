@@ -37,7 +37,8 @@ int main() {
     {
         bool won = false;
         string guess;
-        GameState game(d);
+        string currentWord = d.randomWord();
+        GameState game(currentWord);
 
         while (game.attemptsLeft() > 0 && game.getCurrentState() != game.getCurrentWord()) {
             cout << "Current state: " << game.getCurrentState() << "\n\n";

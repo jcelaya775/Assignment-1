@@ -1,7 +1,7 @@
 #include "GameState.h"
 
-GameState::GameState(Dictionary d) {
-    _currentWord = d.randomWord();
+GameState::GameState(string word) {
+    _currentWord = word;
     _attemptsLeft = _currentWord.length();
     _currentState = "";
     // initialize _currentState with blanks
