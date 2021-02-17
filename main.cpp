@@ -27,11 +27,11 @@ int main() {
         d.readUserInp();
     }
 
+    Player player;
     string choice;
     cout << "Do you want to play (yes/no): ";
     cin >> choice;
     cout << endl;
-    Player player;
 
     while (choice == "yes")
     {
@@ -40,7 +40,7 @@ int main() {
         string currentWord = d.randomWord();
         GameState game(currentWord);
 
-        while (game.attemptsLeft() > 0 && game.getCurrentState() != game.getCurrentWord()) {
+        while (game.attemptsLeft() > 0 && !won) {
             cout << "Current state: " << game.getCurrentState() << "\n\n";
             cout << game.attemptsLeft() << " guesses left."
                  << "\n\n";
