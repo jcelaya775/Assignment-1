@@ -42,8 +42,7 @@ int main() {
 
         while (game.attemptsLeft() > 0 && !won) {
             cout << "Current state: " << game.getCurrentState() << "\n\n";
-            cout << game.attemptsLeft() << " guesses left."
-                 << "\n\n";
+            cout << game.attemptsLeft() << " guesses left." << "\n\n";
 
             cout << "Enter your guess (word or letter): ";
             cin >> guess;
@@ -58,7 +57,7 @@ int main() {
             else
                 cout << "Your guess was incorrect." << endl;
 
-            if (game.getCurrentState() == game.getCurrentWord())
+            if (guess == currentWord)
                 won = true;
 
             cout << "\n\n";
