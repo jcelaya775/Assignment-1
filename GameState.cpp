@@ -5,7 +5,7 @@ GameState::GameState(string word) {
     _attemptsLeft = _currentWord.length();
     _currentState = "";
     // initialize _currentState with blanks
-    for (int i = 0; i < _currentWord.length(); i++) {
+    for (unsigned int i = 0; i < _currentWord.length(); i++) {
         _currentState += "_";
     }
 }
@@ -21,7 +21,7 @@ vector<string> GameState::getWrongLetters() {
 vector<string> GameState::getWrongWords() {
     return _wrongWords;
 }
-int GameState::attemptsLeft() {
+unsigned int GameState::attemptsLeft() {
     return _attemptsLeft;
 }
 bool GameState::makeGuess(string guess) {
@@ -36,7 +36,7 @@ bool GameState::makeGuess(string guess) {
     } 
     else if (guess.length() == 1) { // if guessed a letter
         if (_currentWord.find(guess) != _currentWord.npos) { // if guessed letter(s) correctly 
-            for (int i = 0; i < _currentWord.length(); i++) { // mark letter(s)
+            for (unsigned int i = 0; i < _currentWord.length(); i++) { // mark letter(s)
                 if (guess == _currentWord.substr(i, 1))
                     _currentState[i] = _currentWord[i];
             }

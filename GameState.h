@@ -11,7 +11,7 @@ class GameState {
         string _currentState; // current state of the word
         vector<string> _wrongLetters; // list of wrong letter guesses
         vector<string> _wrongWords; // list of wrong word guesses
-        int _attemptsLeft;
+        unsigned int _attemptsLeft;
 
     public:
         GameState(){};
@@ -20,7 +20,7 @@ class GameState {
         string getCurrentState(); // pre: _currentState; post: returns _currentState
         vector<string> getWrongLetters(); // pre: _wrongLetters; post: returns _wrongLetteres
         vector<string> getWrongWords();   // pre: _wrongWords; post: rturns _wrongWords
-        int attemptsLeft();               // pre: _attemptsLeft; post: returns _attemptsLeft
+        unsigned int attemptsLeft();               // pre: _attemptsLeft; post: returns _attemptsLeft
         bool makeGuess(string);           // pre: none; post: returns whether guess was correct and marks _currentState if applicable
 };
 

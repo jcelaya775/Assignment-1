@@ -24,7 +24,14 @@ int main() {
         cin >> filename;
         d.readFile(filename);
     } else if (option == 2) {
-        d.readUserInp();
+        string word;
+        
+        do {
+            cout << "Enter a word without spaces (type '/quit' to finish): ";
+            cin >> word;
+            if (word != "/quit")
+                d.add(word);
+        } while (word != "/quit");
     }
 
     Player player;
