@@ -30,3 +30,4 @@ string Dictionary::randomWord() {
 
     return _words[randIndex];
 }
+

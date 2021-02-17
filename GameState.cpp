@@ -50,3 +50,4 @@ bool GameState::makeGuess(string guess) {
 
     return guessResult;
 }
+
