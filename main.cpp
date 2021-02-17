@@ -27,11 +27,11 @@ int main() {
         d.readUserInp();
     }
 
-    Player player;
     string choice;
     cout << "Do you want to play (yes/no): ";
     cin >> choice;
     cout << endl;
+    Player player;
 
     while (choice == "yes")
     {

@@ -2,7 +2,7 @@
 
 GameState::GameState(string word) {
     _currentWord = word;
-    _attemptsLeft = _currentWord.length();
+    _attemptsLeft = word.length();
     _currentState = "";
     // initialize _currentState with blanks
     for (unsigned int i = 0; i < _currentWord.length(); i++) {
@@ -38,7 +38,7 @@ bool GameState::makeGuess(string guess) {
         if (_currentWord.find(guess) != _currentWord.npos) { // if guessed letter(s) correctly
             for (unsigned int i = 0; i < _currentWord.length(); i++) { // mark letter(s)
                 if (guess == _currentWord.substr(i, 1))
-                    _currentState[i] = _currentWord[i];
+                    _currentState[i] = _currentWord[i]; // reveal letter(s) in _currentState
             }
 
             guessResult = true;
