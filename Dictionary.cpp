@@ -1,7 +1,14 @@
 #include "Dictionary.h"
 
-void Dictionary::add(string word) {
-    _words.push_back(word);
+void Dictionary::readUserInp() {
+    string word;
+
+    do {
+    cout << "Enter a word without spaces (type '/quit' to finish): ";
+    cin >> word;
+    if (word != "/quit")
+        _words.push_back(word);
+    } while (word != "/quit");
 }
 void Dictionary::readFile(string filename) {
     ifstream infile(filename);

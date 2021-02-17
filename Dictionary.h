@@ -13,7 +13,7 @@ class Dictionary {
         vector<string> _words;
 
     public:
-        void add(string);      // pre: _words; post: a string is pushed to _words
+        void readUserInp();    // pre: _words is empty; post: populates the container via the consle
         void readFile(string); // pre: _words is empty; post: populates the container via a file
         string randomWord();   // pre: none; post: returns a random word from the container
 };

@@ -33,17 +33,17 @@ bool GameState::makeGuess(string guess) {
             guessResult = true;
         } else // guessed wrong word
             _wrongWords.push_back(guess);
-    } 
+    }
     else if (guess.length() == 1) { // if guessed a letter
-        if (_currentWord.find(guess) != _currentWord.npos) { // if guessed letter(s) correctly 
+        if (_currentWord.find(guess) != _currentWord.npos) { // if guessed letter(s) correctly
             for (unsigned int i = 0; i < _currentWord.length(); i++) { // mark letter(s)
                 if (guess == _currentWord.substr(i, 1))
                     _currentState[i] = _currentWord[i];
             }
-        
+
             guessResult = true;
         } else // guessed wrong letter
-            _wrongLetters.push_back(guess); 
+            _wrongLetters.push_back(guess);
     }
 
     _attemptsLeft--;
